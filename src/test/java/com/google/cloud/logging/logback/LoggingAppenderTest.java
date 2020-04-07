@@ -199,10 +199,8 @@ public class LoggingAppenderTest {
     Timestamp timestamp = Timestamp.ofTimeSecondsAndNanos(100000, 0);
     LoggingEvent loggingEvent = createLoggingEvent(Level.ERROR, timestamp.getSeconds());
     loggingAppender.doAppend(loggingEvent);
-
     assertThat(logNameArg.getValue()).isEqualTo(defaultWriteOptions[0]);
-    // TODO(chingor): Fix this test to work on GCE and locally
-    // assertThat(resourceArg.getValue()).isEqualTo(defaultWriteOptions[1]);
+    assertThat(resourceArg.getValue()).isEqualTo(defaultWriteOptions[1]);
   }
 
   @Test
